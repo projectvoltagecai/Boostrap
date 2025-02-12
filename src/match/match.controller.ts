@@ -1,4 +1,10 @@
-import { Controller } from '@nestjs/common';
+import { Body, Controller, Get, Patch, Post } from '@nestjs/common';
+import { MatchService } from './match.service';
+import { MatchDto } from './Match.DTO';
 
-@Controller('match-et')
-export class MatchController {}
+@Controller('match')
+export class MatchController {
+
+
+    
+}

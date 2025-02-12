@@ -16,7 +16,7 @@ import { MatchModule } from './match/match.module';
 @Module({
   imports: [
 
-    MongooseModule.forRoot('mongodb+srv://Admin:semillero2024*@cluster0.vhq3q.mongodb.net/Voltage_dev'),  
+    MongooseModule.forRoot('mongodb+srv://Admin:semillero2024*@cluster0.vhq3q.mongodb.net/Luzcarolina'),  
     UserModule, GamificationModule, VocabularyModule, ExerciseModule, SkillModule, ExamModule, LevelModule, SublevelModule, ProgressModule, MatchModule],   
     
   controllers: [AppController],

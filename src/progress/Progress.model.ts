@@ -1,13 +1,12 @@
-import mongoose from "mongoose"; 
+import mongoose, { Date } from "mongoose"; 
 
 export const ProgressSchema = new mongoose.Schema({
 
-    progressId: Number, 
+    
     userId: Number,
     sublevelId: String, 
     exerciseId: String, 
-    date: Date,
-    time: String, 
+    datetime: Date,
     points: Number,
     skillId: Number, 
 
@@ -15,12 +14,11 @@ export const ProgressSchema = new mongoose.Schema({
 
 export interface IProgress extends mongoose.Document {
 
-    progressId: Number; 
+   
     userId: Number; 
     sublevel: string; 
     exercise: string; 
-    date: Date; 
-    time: string; 
+    datetime: Date; 
     points: number; 
     skillId: Number; 
 

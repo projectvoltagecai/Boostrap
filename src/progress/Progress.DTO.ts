@@ -1,11 +1,10 @@
 export class ProgressDto{
 
-    progressId: Number; 
+    
     userId: Number; 
     sublevelId: string; 
     exerciseId: string; 
-    date: Date; 
-    time: string; 
+    datetime: Date; 
     points: number; 
     skillId: Number; 
 

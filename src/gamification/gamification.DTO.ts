@@ -1,11 +1,11 @@
 export class GamificationDto{
     
     Points: Number; 
-    Medals: String; 
-    Avatar: String; 
+    Medals: Buffer; 
+    Avatar: Buffer; 
     Streak: string; 
     Level: Number; 
     Sublevel: String; 
-    Lifes: String; 
+    Lives: Number; 
 
 }

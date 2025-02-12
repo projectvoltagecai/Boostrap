@@ -9,6 +9,9 @@ export const ExerciseSchema = new mongoose.Schema({
  Sublevel: String, 
  Instruction: String, 
  RightAnswer: String, 
+ Audio: Buffer, 
+ Image: Buffer,
+ Text: String
 
 
 })
@@ -22,6 +25,9 @@ export interface IExercise extends mongoose.Document {
  Sublevel: string; 
  Instruction: string; 
  RightAnswer: string; 
+ Audio: Buffer; 
+ Image: Buffer; 
+ Text: String; 
 
 
 }

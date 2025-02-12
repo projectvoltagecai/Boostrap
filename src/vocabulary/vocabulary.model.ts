@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export const VocabularySchema = new mongoose.Schema({
 
-id: Number,
+
 ObjectName: String, 
 Audio: Buffer, 
 IPA: String, 
@@ -16,7 +16,7 @@ Sublevel: String,
 
 export interface IVocabulary extends mongoose.Document{
     
-id: number; 
+
 ObjectName: string; 
 Audio: Buffer; 
 IPA: string; 

@@ -8,4 +8,7 @@ export class ExerciseDto{
  Sublevel: string; 
  Instruction: string; 
  RightAnswer: string; 
+ Audio: Buffer; 
+ Image: Buffer; 
+ Text: String; 
 }
