@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/commo
 import { ProgressService } from './progress.service';
 import { ProgressDto } from './Progress.DTO';
 
-@Controller('progress')
+@Controller('Progress')
 export class ProgressController {
 
     constructor (private readonly progressService: ProgressService){}

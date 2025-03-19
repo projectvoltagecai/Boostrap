@@ -12,12 +12,16 @@ import { LevelModule } from './level/level.module';
 import { SublevelModule } from './sublevel/sublevel.module';
 import { ProgressModule } from './progress/progress.module';
 import { MatchModule } from './match/match.module';
+import { MultipleChoiceModule } from './multiple-choice/multiple-choice.module';
+import { GapModule } from './gap/gap.module';
+import { TagModule } from './tag/tag.module';
+import { ClassifyModule } from './classify/classify.module';
 
 @Module({
   imports: [
 
     MongooseModule.forRoot('mongodb+srv://Admin:semillero2024*@cluster0.vhq3q.mongodb.net/Luzcarolina'),  
-    UserModule, GamificationModule, VocabularyModule, ExerciseModule, SkillModule, ExamModule, LevelModule, SublevelModule, ProgressModule, MatchModule],   
+    UserModule, GamificationModule, VocabularyModule, ExerciseModule, SkillModule, ExamModule, LevelModule, SublevelModule, ProgressModule, MatchModule, MultipleChoiceModule, GapModule, TagModule, ClassifyModule],   
     
   controllers: [AppController],
   providers: [AppService],

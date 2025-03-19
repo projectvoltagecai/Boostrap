@@ -6,7 +6,7 @@ export class VocabularyDto {
     IPA: string; 
     Image: Buffer; 
     Description: String; 
-    Level: String; 
-    Sublevel: String; 
+    Level: []; 
+    Sublevel: []; 
 
 }

@@ -8,7 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
      imports:[
     
-      MongooseModule.forFeature([{name: 'match', schema: MatchSchema}])
+      MongooseModule.forFeature([{name: 'Match', schema: MatchSchema}])
       ], 
       controllers: [MatchController],
       providers: [MatchService]

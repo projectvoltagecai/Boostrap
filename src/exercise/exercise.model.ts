@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
+import { ExerciseType } from "./exercise.DTO";
 
 export const ExerciseSchema = new mongoose.Schema({
  
- ExerciseType: String, 
- Skills: String, 
+ ExerciseType: {type: String, enum: Object.values(ExerciseType) }, 
+ Skills: [{type: mongoose.SchemaTypes.ObjectId, ref: "Skill"}], 
  Points: Number, 
- Level: String, 
- Sublevel: String, 
+ Level: [{type: mongoose.SchemaTypes.ObjectId, ref: "Level"}],
+ Sublevel: [{type: mongoose.SchemaTypes.ObjectId, ref: "Sublevel"}], 
  Instruction: String, 
  RightAnswer: String, 
  Audio: Buffer, 
@@ -18,11 +19,11 @@ export const ExerciseSchema = new mongoose.Schema({
 
 export interface IExercise extends mongoose.Document {
  
- ExerciseType: string; 
- Skill: string; 
+ ExerciseType: ExerciseType; 
+ Skill: []; 
  Points: number; 
- Level: string; 
- Sublevel: string; 
+ Level: []; 
+ Sublevel: []; 
  Instruction: string; 
  RightAnswer: string; 
  Audio: Buffer; 

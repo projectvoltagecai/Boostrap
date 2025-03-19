@@ -7,8 +7,8 @@ export class GamificationController {
 
     constructor (private readonly gamificationService: GamificationService){}
 
-     @Get()
-     userHola(): string{
+   @Get()
+    gamificationHola(): string{
         return this.gamificationService.saludo()
     }
 

@@ -4,4 +4,7 @@ export class ExamDto {
  Points: Number;
  Level: string;
  Sublevel: string; 
+ Audio: Buffer; 
+ Img: Buffer; 
+ Text: string
 }

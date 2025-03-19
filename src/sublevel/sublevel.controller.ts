@@ -39,7 +39,7 @@ if (sublevelEliminado){
  return {Ok:true, sublevelEliminado}
  
 }
-return {ok:false, mensaje: "El nivel no existe"}
+return {ok:false, mensaje: "El subnivel no existe"}
 }
 
 @Patch('/:id')

@@ -7,6 +7,9 @@ Answer: String,
 Points: Number, 
 Level: String, 
 Sublevel: String,
+Audio: Buffer, 
+Img: Buffer, 
+Text: String
 
 
 })
@@ -18,5 +21,8 @@ Answer: string;
 Points: Number;
 Level: string;
 Sublevel: string; 
+Audio: Buffer; 
+Img: Buffer; 
+Text: string
 
 } 

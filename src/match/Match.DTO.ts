@@ -6,6 +6,9 @@ export class MatchDto{
     word1: string; 
     word2: string; 
     word3: string; 
+    def1: String; 
+    def2: String;
+    def3: String; 
 
 
 }

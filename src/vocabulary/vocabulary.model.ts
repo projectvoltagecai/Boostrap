@@ -8,8 +8,8 @@ Audio: Buffer,
 IPA: String, 
 Image: Buffer,  
 Description: String,  
-Level: String, 
-Sublevel: String,  
+Level: [{type: mongoose.SchemaTypes.ObjectId, ref: "Level"}],
+Sublevel: [{type: mongoose.SchemaTypes.ObjectId, ref: "Sublevel"}],  
 
 
 })
@@ -22,8 +22,8 @@ Audio: Buffer;
 IPA: string; 
 Image: Buffer; 
 Description: String; 
-Level: String; 
-Sublevel: String; 
+Level: []; 
+Sublevel: []; 
 
 
 }

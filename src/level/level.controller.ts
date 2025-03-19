@@ -7,23 +7,23 @@ export class LevelController {
 
     constructor (private readonly levelService: LevelService){}
 
-        @Get()
+    @Get()
 
-        levelHola(): string{
+    levelHola(): string{
 
-            return this.levelService.saludo()
+    return this.levelService.saludo()
         
     }
 
     @Post()
-      async create(@Body() Level : LevelDto){
+    async create(@Body() Level : LevelDto){
 
     const respuesta = await this.levelService.crearLevel(Level)
     return {ok: true, respuesta}
   }
 
   
- @Get('all')
+   @Get('all')
 
  async buscarTodos(){
 

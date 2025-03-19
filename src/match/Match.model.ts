@@ -9,6 +9,9 @@ export const MatchSchema = new mongoose.Schema({
     word1: String,
     word2: String,
     word3: String,
+    def1: String, 
+    def2: String,
+    def3: String, 
 
 })
 
@@ -20,5 +23,8 @@ export interface IMatch extends mongoose.Document {
     word1: String,
     word2: String,
     word3: String, 
+    def1: String, 
+    def2: String,
+    def3: String, 
 
 }

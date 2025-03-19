@@ -20,4 +20,28 @@ export class VocabularyService {
 
        return await resultado.save()
    }
+
+    async ConsultarVocabulary(): Promise <IVocabulary[]>{
+   
+           return await this.vocabularyModel.find().exec()
+       }
+   
+       async EliminarVocabulary(id: string ){
+   
+           const respuesta= await this.vocabularyModel.findByIdAndDelete(id)
+           if(respuesta!=null)
+               return respuesta
+           else 
+           return null
+       }
+   
+       async ActualizarVocabulary(id: string, Vocabulary : VocabularyDto){
+   
+           const respuesta = await this.vocabularyModel.findByIdAndUpdate(id, Vocabulary).exec()
+           
+           if (respuesta!= null)
+              return respuesta
+           else 
+           return null
+       }
 }
