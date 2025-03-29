@@ -16,12 +16,13 @@ import { MultipleChoiceModule } from './multiple-choice/multiple-choice.module';
 import { GapModule } from './gap/gap.module';
 import { TagModule } from './tag/tag.module';
 import { ClassifyModule } from './classify/classify.module';
+import { ItemsModule } from './items/items.module';
 
 @Module({
   imports: [
 
     MongooseModule.forRoot('mongodb+srv://Admin:semillero2024*@cluster0.vhq3q.mongodb.net/Luzcarolina'),  
-    UserModule, GamificationModule, VocabularyModule, ExerciseModule, SkillModule, ExamModule, LevelModule, SublevelModule, ProgressModule, MatchModule, MultipleChoiceModule, GapModule, TagModule, ClassifyModule],   
+    UserModule, GamificationModule, VocabularyModule, ExerciseModule, SkillModule, ExamModule, LevelModule, SublevelModule, ProgressModule, MatchModule, MultipleChoiceModule, GapModule, TagModule, ClassifyModule, ItemsModule],   
     
   controllers: [AppController],
   providers: [AppService],
