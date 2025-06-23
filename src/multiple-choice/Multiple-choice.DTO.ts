@@ -6,4 +6,5 @@ export class MultipleChoiceDto{
     Skill: [];
     Audio: Buffer;  
     
+    
     }
