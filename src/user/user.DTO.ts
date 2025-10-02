@@ -4,5 +4,9 @@ export class UserDto{
     User: string; 
     Mail: string; 
     Password: string; 
+    Avatar: Buffer; 
+    Program: string; 
+    Ficha: string; 
+    Identification: number; 
     
     }

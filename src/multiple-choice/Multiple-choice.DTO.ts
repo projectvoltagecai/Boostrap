@@ -1,7 +1,9 @@
+import { IItems } from "src/items/items.model";
+
 export class MultipleChoiceDto{
     Instruction: string; 
     Text: string; 
-    Items: []; 
+    Items: [IItems]; 
     Level: []; 
     Skill: [];
     Audio: Buffer;  

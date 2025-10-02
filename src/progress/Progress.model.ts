@@ -13,6 +13,9 @@ export const ProgressSchema = new mongoose.Schema({
     datetime: Date,
     points: Number,
     skillId: [{type: mongoose.SchemaTypes.ObjectId, ref: "Skill"}], 
+    Medals: Buffer,
+    Streak: String,
+    Lives: Number, 
 
 })
 
@@ -25,5 +28,8 @@ export interface IProgress extends mongoose.Document {
     datetime: Date; 
     points: number; 
     skillId: ISkill[]; 
+    Medals: Buffer; 
+    Streak: string; 
+    Lives: Number; 
 
 }

@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
-import { GamificationModule } from './gamification/gamification.module';
+import { typingModule } from './typing/typing.module';
 import { VocabularyModule } from './vocabulary/vocabulary.module';
 import { ExerciseModule } from './exercise/exercise.module';
 import { SkillModule } from './skill/skill.module';
@@ -22,7 +22,7 @@ import { ItemsModule } from './items/items.module';
   imports: [
 
     MongooseModule.forRoot('mongodb+srv://Admin:semillero2024*@cluster0.vhq3q.mongodb.net/Luzcarolina'),  
-    UserModule, GamificationModule, VocabularyModule, ExerciseModule, SkillModule, ExamModule, LevelModule, SublevelModule, ProgressModule, MatchModule, MultipleChoiceModule, GapModule, TagModule, ClassifyModule, ItemsModule],   
+    UserModule, typingModule, VocabularyModule, ExerciseModule, SkillModule, ExamModule, LevelModule, SublevelModule, ProgressModule, MatchModule, MultipleChoiceModule, GapModule, TagModule, ClassifyModule, ItemsModule],   
     
   controllers: [AppController],
   providers: [AppService],

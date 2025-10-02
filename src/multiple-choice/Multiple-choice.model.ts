@@ -1,4 +1,5 @@
 import mongoose from "mongoose"; 
+import { IItems } from "src/items/items.model";
 
 export const MultipleChoiceSchema = new mongoose.Schema({
 
@@ -15,7 +16,7 @@ export interface IMultipleChoice extends mongoose.Document {
 
     Instruction: string; 
     Text: string; 
-    Items: []; 
+    Items: [IItems]; 
     Level: []; 
     Skill: [];
     Audio: Buffer; 
