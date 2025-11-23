@@ -19,6 +19,14 @@ export class MultipleChoiceService {
        return await resultado.save()
    }
 
+   //Nuevo creado con IA
+   
+//async createMultipleChoice(multipleChoice: MultipleChoiceDto)
+//{ return new this.multipleChoiceModel(multipleChoice);
+
+// } 
+
+   
    async ConsultarMultipleChoice(): Promise <IMultipleChoice[]>{
 
        return await this.multipleChoiceModel.find().exec()

@@ -17,14 +17,23 @@ import { GapModule } from './gap/gap.module';
 import { TagModule } from './tag/tag.module';
 import { ClassifyModule } from './classify/classify.module';
 import { ItemsModule } from './items/items.module';
+import { MulterModule } from '@nestjs/platform-express';
+import { multerConfig } from './config/multer.config'; // Importa tu configuración
 
 @Module({
   imports: [
 
     MongooseModule.forRoot('mongodb+srv://Admin:semillero2024*@cluster0.vhq3q.mongodb.net/Luzcarolina'),  
-    UserModule, typingModule, VocabularyModule, ExerciseModule, SkillModule, ExamModule, LevelModule, SublevelModule, ProgressModule, MatchModule, MultipleChoiceModule, GapModule, TagModule, ClassifyModule, ItemsModule],   
+    UserModule, typingModule, VocabularyModule, ExerciseModule, SkillModule, ExamModule, LevelModule, 
+    SublevelModule, ProgressModule, MatchModule, MultipleChoiceModule, GapModule, TagModule, ClassifyModule,
+     ItemsModule, 
+    MulterModule.register(multerConfig)],
     
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
+
+
+
+

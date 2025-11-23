@@ -1,10 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { IUser } from './user.model';
 import { UserDto } from './user.DTO';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 
-
+@Injectable()
 export class UserService {
 
     constructor(@InjectModel('User') private userModel: Model<IUser>){}
@@ -13,12 +13,12 @@ export class UserService {
         return "Esta es la ruta de estudiante o Usuario"
     }
 
-    async crearUser(User: UserDto){
-
-        const resultado =new this.userModel(User)
-
-        return await resultado.save()
-    }
+    async create(userDto: UserDto): Promise<any> {
+        (userDto);
+        const newUserEntry = new this.userModel(userDto);
+        return await newUserEntry.save();
+        
+        }
 
     async ConsultarUsers(): Promise <IUser[]>{
 

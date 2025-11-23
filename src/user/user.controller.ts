@@ -1,6 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UploadedFiles, UseInterceptors } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDto } from './user.DTO';
+import { FileFieldsInterceptor } from '@nestjs/platform-express';
 
 @Controller('user')
 export class UserController {
@@ -12,12 +13,7 @@ export class UserController {
 
   }
 
-  @Post()
-  async create(@Body() User : UserDto){
-
-    const respuesta = await this.userservice.crearUser(User)
-    return {ok: true, respuesta}
-  }
+  
 
   @Get('all')
 
@@ -25,6 +21,30 @@ export class UserController {
     return await this.userservice.ConsultarUsers()
 
   }
+
+  
+     @Post()
+    @UseInterceptors(
+      FileFieldsInterceptor([
+        
+        { name: 'Avatar', maxCount: 1 },
+      ]),
+    )
+    create(
+      @Body() userDto: UserDto,
+      @UploadedFiles() files:  {Avatar?: Express.Multer.File[] },
+    )
+    {
+      // Asignamos los buffers de los archivos al DTO
+      
+      
+      if (files.Avatar && files.Avatar[0]) {
+        userDto.Avatar = files.Avatar[0].buffer;
+      }
+  
+      // Llamamos al método del servicio
+      return this.userservice.create(userDto);
+    }
 
   @Delete('/:id')
   async Eliminar(@Param('id') id: string){
@@ -49,4 +69,5 @@ export class UserController {
     return {ok: false, mensaje: "El usuario no se puede actualizar porque no existe"}
   }
   
-}
+  
+  }

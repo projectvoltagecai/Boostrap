@@ -1,3 +1,6 @@
+import { ILevel } from "src/level/Level.model";
+import { ISublevel } from "src/sublevel/Sublevel.model";
+
 export class VocabularyDto {
     
    
@@ -6,7 +9,7 @@ export class VocabularyDto {
     IPA: string; 
     Image: Buffer; 
     Description: String; 
-    Level: []; 
-    Sublevel: []; 
+    Level: ILevel; 
+    Sublevel: ISublevel; 
 
 }

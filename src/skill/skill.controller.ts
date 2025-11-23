@@ -16,9 +16,9 @@ export class SkillController {
 
    @Post()
 
-  async  create(@Body() Skill: SkillDto){
+  async  create(@Body() skilldto: SkillDto){
 
-  const respuesta = await this.skillservice.crearSkill(Skill)
+  const respuesta = await this.skillservice.crearSkill(skilldto)
    return {ok: true, respuesta}
   }
    

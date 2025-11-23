@@ -6,11 +6,10 @@ export class ExerciseDto{
   
  ExerciseType: ExerciseType; 
  Skill: Skill; 
+ Level: ILevel[]; 
+ Sublevel: ISublevel[]; 
  Points: number; 
- Level: ILevel; 
- Sublevel: ISublevel;  
  Instruction: string; 
- RightAnswer: string; 
  Audio: Buffer; 
  Image: Buffer; 
  Text: String; 
@@ -18,7 +17,7 @@ export class ExerciseDto{
 
 
 export enum ExerciseType{
-    TAG="tag", MATCH="match", CLASSIFY="classify", GAP="gap", TYPING="typing", MULTIPLECHOICE="multiplechoice,"
+    TAG="tag", MATCH="match", CLASSIFY="classify", GAP="gap", TYPING="typing", MULTIPLECHOICE="multiplechoice"
 }
 export enum Skill{
     VOCABULARY="vocabulary", LISTENING="listening", READING="reading", WRITING="writing"}

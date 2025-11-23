@@ -14,19 +14,12 @@ export class VocabularyService {
         return "esta es la página de Vocabulario"
     }
 
-    async crearVocabulary(Vocabulary: VocabularyDto){
-
-        const resultado =new this.vocabularyModel(Vocabulary)
-
-       return await resultado.save()
-   }
-
     async ConsultarVocabulary(): Promise <IVocabulary[]>{
    
            return await this.vocabularyModel.find().exec()
        }
    
-       async EliminarVocabulary(id: string ){
+    async EliminarVocabulary(id: string ){
    
            const respuesta= await this.vocabularyModel.findByIdAndDelete(id)
            if(respuesta!=null)
@@ -44,4 +37,12 @@ export class VocabularyService {
            else 
            return null
        }
+
+    async create(vocabularyDto: VocabularyDto): Promise<any> {
+    // Aquí ya tienes acceso a todos los datos, incluidos los archivos
+    (vocabularyDto);
+    const newVocabularyEntry = new this.vocabularyModel(vocabularyDto);
+    return await newVocabularyEntry.save();
+    
+    }
 }

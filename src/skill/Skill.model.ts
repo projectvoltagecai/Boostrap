@@ -2,13 +2,13 @@ import mongoose from "mongoose";
 
 export const SkillSchema= new mongoose.Schema({
     
-    TypeofSkill: String, 
+    Skill: String, 
     
    
    })
    
    export interface ISkill extends mongoose.Document{
    
-    TypeofSkill: String; 
+    Skill: String; 
     
    }

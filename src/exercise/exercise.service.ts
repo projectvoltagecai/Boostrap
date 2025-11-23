@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { IExercise } from './exercise.model';
 import { ExerciseDto } from './exercise.DTO';
 
 @Injectable()
-export class ExerciseService {
+export class ExerciseService {    private readonly logger = new Logger(ExerciseService.name);
 
     constructor(@InjectModel('Exercise') private exerciseModel: Model<IExercise>){}
 
@@ -14,16 +14,22 @@ export class ExerciseService {
         return "Esta es la página de Ejercicio"
     }
 
-    async crearExercise(Exercise: ExerciseDto){
+   async create(exerciseDto: ExerciseDto): Promise<any> {
+        
+    (exerciseDto);
+        const newexerciseEntry = new this.exerciseModel(exerciseDto);
+       return await newexerciseEntry.save();
+        
+       }
 
-        const resultado =new this.exerciseModel(Exercise)
-
-        return await resultado.save()
-    }
+        
 
     async ConsultarExercises(): Promise <IExercise[]>{
 
-        return await this.exerciseModel.find().exec()
+        return await this.exerciseModel.find()
+        .populate("level")
+        .populate("sublevel")
+        .exec()
     }
 
     async EliminarExercise(id: string ){

@@ -1,5 +1,7 @@
-import { Controller, Get } from '@nestjs/common';
+
+import { Controller, Post, UseInterceptors, UploadedFile, Get } from '@nestjs/common';
 import { AppService } from './app.service';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller()
 export class AppController {
@@ -10,3 +12,5 @@ export class AppController {
     return this.appService.getHello();
   }
 }
+
+

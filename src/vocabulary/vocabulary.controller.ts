@@ -1,6 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UploadedFiles, UseInterceptors } from '@nestjs/common';
 import { VocabularyService } from './vocabulary.service';
 import { VocabularyDto } from './vocabulary.DTO';
+import { FileFieldsInterceptor } from '@nestjs/platform-express';
 
 @Controller('vocabulary')
 export class VocabularyController {
@@ -14,12 +15,29 @@ export class VocabularyController {
         return this.vocabularyService.saludo()
     }
 
-    @Post()
-  async create(@Body() Vocabulary : VocabularyDto){
+   @Post()
+  @UseInterceptors(
+    FileFieldsInterceptor([
+      { name: 'Audio', maxCount: 1 },
+      { name: 'Image', maxCount: 1 },
+    ]),
+  )
+  create(
+    @Body() vocabularyDto: VocabularyDto,
+    @UploadedFiles() files: { Audio?: Express.Multer.File[], Image?: Express.Multer.File[] },
+  ) {
+    // Asignamos los buffers de los archivos al DTO
+    if (files.Audio && files.Audio[0]) {
+      vocabularyDto.Audio = files.Audio[0].buffer;
+    }
+    if (files.Image && files.Image[0]) {
+      vocabularyDto.Image = files.Image[0].buffer;
+    }
 
-  const respuesta = await this.vocabularyService.crearVocabulary(Vocabulary)
-  return {ok: true, respuesta}
+    // Llamamos al método del servicio
+    return this.vocabularyService.create(vocabularyDto);
   }
+
 
   @Get('all')
   

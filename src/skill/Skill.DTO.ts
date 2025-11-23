@@ -1,6 +1,6 @@
 export class SkillDto{
 
     
-    TypeofSkill: String; 
+    Skill: String; 
   
 }

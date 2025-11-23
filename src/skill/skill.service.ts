@@ -14,9 +14,9 @@ export class SkillService {
         return "Esta es la página de Habilidades"
     }
 
-   async crearSkill(Skill: SkillDto){
+   async crearSkill(skilldto: SkillDto): Promise<any>{
 
-        const resultado = new this.skillModel(Skill)
+        const resultado = new this.skillModel(skilldto)
 
         return resultado.save()
 

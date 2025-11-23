@@ -1,6 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UploadedFiles, UseInterceptors } from '@nestjs/common';
 import { ExerciseService } from './exercise.service';
 import { ExerciseDto } from './exercise.DTO';
+import { FileFieldsInterceptor } from '@nestjs/platform-express';
 
 @Controller('exercise')
 export class ExerciseController {
@@ -13,12 +14,29 @@ export class ExerciseController {
         return this.exerciseService.saludo()
     }
 
-    @Post()
-      async create(@Body() Exercise : ExerciseDto){
-
-    const respuesta = await this.exerciseService.crearExercise(Exercise)
-    return {ok: true, respuesta}
-  }
+   
+      @Post()
+     @UseInterceptors(
+       FileFieldsInterceptor([
+         { name: 'Audio', maxCount: 1 },
+         { name: 'Image', maxCount: 1 },
+       ]),
+     )
+     create(
+       @Body() exerciseDto: ExerciseDto,
+       @UploadedFiles() files: { Audio?: Express.Multer.File[], Image?: Express.Multer.File[] },
+     ) {
+       // Asignamos los buffers de los archivos al DTO
+       if (files.Audio && files.Audio[0]) {
+         exerciseDto.Audio = files.Audio[0].buffer;
+       }
+       if (files.Image && files.Image[0]) {
+         exerciseDto.Image = files.Image[0].buffer;
+       }
+   
+       // Llamamos al método del servicio
+       return this.exerciseService.create(exerciseDto);
+     }
 
   @Get('all')
 
